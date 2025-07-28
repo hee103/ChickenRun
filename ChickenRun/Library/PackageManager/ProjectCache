@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638893019698790715
-    m_Hash: 3160327359
+      ticks: 638893036749143327
+    m_Hash: 2807018963
   m_LockFileStatus:
     m_FilePath: C:/Users/a0105/Desktop/UnityGit/ChickenRun/ChickenRun/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638893019698852476
-    m_Hash: 1535668920
+      ticks: 638893036749143327
+    m_Hash: 3503722762
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
