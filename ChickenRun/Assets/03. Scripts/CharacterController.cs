@@ -13,6 +13,7 @@ public class CharacterController : MonoBehaviour
     protected Vector2 moveInput;
     Rigidbody characterRigidbody;
     BoxCollider characterCollider;
+    private PlayerInput playerinput;
 
     PlayerInputActions input;
 
