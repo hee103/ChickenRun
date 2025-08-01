@@ -42,10 +42,11 @@ public class CharacterController : MonoBehaviour
         input.Player.Disable();
     }
 
-    public void Move(int speed)
+    public void OnMove(InputValue inputValue)
     {
-        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y) * speed * Time.fixedDeltaTime;
-        Debug.Log($"Move called with input {moveInput} and move vector {move}");
+        float input = inputValue.Get<Vector3>().x;
+        Debug.Log("key" + input);
+        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y) * 3 * Time.fixedDeltaTime;
         characterRigidbody.MovePosition(characterRigidbody.position + move);
     }
 }
