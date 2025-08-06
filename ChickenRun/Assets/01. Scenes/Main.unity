@@ -344,10 +344,10 @@ PrefabInstance:
       addedObject: {fileID: 1136417100}
     - targetCorrespondingSourceObject: {fileID: 9213206596740143696, guid: 3bd4eb13459efc04fb4e6097b0ca719f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1136417101}
+      addedObject: {fileID: 1136417104}
     - targetCorrespondingSourceObject: {fileID: 9213206596740143696, guid: 3bd4eb13459efc04fb4e6097b0ca719f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1136417104}
+      addedObject: {fileID: 1136417105}
   m_SourcePrefab: {fileID: 100100000, guid: 3bd4eb13459efc04fb4e6097b0ca719f, type: 3}
 --- !u!1 &1136417095 stripped
 GameObject:
@@ -388,36 +388,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 72785ed8d5769f84db310a5333ad95d6, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1136417095}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 48d5e6d6-839f-4732-8d73-323e62105984
+    m_ActionName: Chicken/Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Chicken
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1136417101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136417095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bc2117c9ea2ff4886deab532854813, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 1136417095}
 --- !u!114 &1136417104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,6 +433,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab351834e756324693fe9c4b8e38cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1136417105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136417095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6bc2117c9ea2ff4886deab532854813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChickenController: {fileID: 1136417104}
 --- !u!1 &1218481268
 GameObject:
   m_ObjectHideFlags: 0

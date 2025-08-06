@@ -19,6 +19,6 @@ public class ChickenController : MonoBehaviour
     }
     private void Chickenmove()
     {
-        CharacterController.Instance.OnMove(inputAction inputValue);
+        //CharacterController.Instance.OnMove(inputAction inputValue);
     }
 }
