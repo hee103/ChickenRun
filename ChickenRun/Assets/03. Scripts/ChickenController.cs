@@ -6,6 +6,7 @@ public class ChickenController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    public float jumpPower;
     public Vector2 curMovementInput;
 
     private Rigidbody _rigidbody;
@@ -33,9 +34,10 @@ public class ChickenController : MonoBehaviour
 
         _rigidbody.velocity = dir;
     }
+
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Performed) 
+        if(context.phase == InputActionPhase.Started) 
         {
             curMovementInput = context.ReadValue<Vector2>();
         }
@@ -43,5 +45,13 @@ public class ChickenController : MonoBehaviour
         {
             curMovementInput = Vector2.zero; // 벡터값에 아무것도 들어가면 안되기 때문에 0으로 만듦
         }
+    }
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            _rigidbody.AddForce(Vector2.up*jumpPower,ForceMode.Impulse);
+        }
+       
     }
 }
