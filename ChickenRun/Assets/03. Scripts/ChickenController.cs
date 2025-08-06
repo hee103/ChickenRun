@@ -35,23 +35,32 @@ public class ChickenController : MonoBehaviour
         _rigidbody.velocity = dir;
     }
 
+    //public void OnMove(InputValue value)
+    //{
+    //    curMovementInput = value.Get<Vector2>();
+    //}
+
+    //public void OnJump(InputValue value)
+    //{
+    //    _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+    //}
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(context.phase == InputActionPhase.Started) 
+        if (context.phase == InputActionPhase.Performed)
         {
             curMovementInput = context.ReadValue<Vector2>();
         }
-        else if(context.phase == InputActionPhase.Canceled)
+        else if (context.phase == InputActionPhase.Canceled)
         {
             curMovementInput = Vector2.zero; // 벡터값에 아무것도 들어가면 안되기 때문에 0으로 만듦
         }
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        if (context.phase == InputActionPhase.Started)
         {
-            _rigidbody.AddForce(Vector2.up*jumpPower,ForceMode.Impulse);
+            _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
         }
-       
+
     }
 }
