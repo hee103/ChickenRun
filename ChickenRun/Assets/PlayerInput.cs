@@ -28,7 +28,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""id"": ""def10f97-7212-4125-9230-47b35cdb99d6"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""OnMove"",
                     ""type"": ""Value"",
                     ""id"": ""48d5e6d6-839f-4732-8d73-323e62105984"",
                     ""expectedControlType"": ""Vector2"",
@@ -45,7 +45,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""OnMove"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -56,7 +56,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""OnMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -67,7 +67,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""OnMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -78,7 +78,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""OnMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -89,7 +89,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""OnMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -100,7 +100,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
 }");
         // Chicken
         m_Chicken = asset.FindActionMap("Chicken", throwIfNotFound: true);
-        m_Chicken_Move = m_Chicken.FindAction("Move", throwIfNotFound: true);
+        m_Chicken_OnMove = m_Chicken.FindAction("OnMove", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -162,12 +162,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     // Chicken
     private readonly InputActionMap m_Chicken;
     private List<IChickenActions> m_ChickenActionsCallbackInterfaces = new List<IChickenActions>();
-    private readonly InputAction m_Chicken_Move;
+    private readonly InputAction m_Chicken_OnMove;
     public struct ChickenActions
     {
         private @PlayerInput m_Wrapper;
         public ChickenActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Chicken_Move;
+        public InputAction @OnMove => m_Wrapper.m_Chicken_OnMove;
         public InputActionMap Get() { return m_Wrapper.m_Chicken; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -177,16 +177,16 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_ChickenActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_ChickenActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
+            @OnMove.started += instance.OnOnMove;
+            @OnMove.performed += instance.OnOnMove;
+            @OnMove.canceled += instance.OnOnMove;
         }
 
         private void UnregisterCallbacks(IChickenActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
+            @OnMove.started -= instance.OnOnMove;
+            @OnMove.performed -= instance.OnOnMove;
+            @OnMove.canceled -= instance.OnOnMove;
         }
 
         public void RemoveCallbacks(IChickenActions instance)
@@ -206,6 +206,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public ChickenActions @Chicken => new ChickenActions(this);
     public interface IChickenActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnOnMove(InputAction.CallbackContext context);
     }
 }

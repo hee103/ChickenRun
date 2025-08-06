@@ -1,24 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ChickenController : MonoBehaviour
 {
-    int ChickenSpeed = 3;
+    [Header("Movement")]
+    public float moveSpeed;
+    public Vector2 curMovementInput;
+
+    private Rigidbody _rigidbody;
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         
-        //CharacterController.Awake();
+       Cursor.lockState = CursorLockMode.Locked;
     }
+    void FixedUpdate()
+    {
+        Move();
+    }
+    void Move()
+    {
+        Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x; //상하좌우 값을 통해 방향 
+        dir *= moveSpeed; // 해당 방향으로 움직일 수 있게 함
+        dir.y = _rigidbody.velocity.y;
 
-    // Update is called once per frame
-    private void FixedUpdate()
-    {
-        Chickenmove();
+        _rigidbody.velocity = dir;
     }
-    private void Chickenmove()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        //CharacterController.Instance.OnMove(inputAction inputValue);
+        if(context.phase == InputActionPhase.Performed) 
+        {
+            curMovementInput = context.ReadValue<Vector2>();
+        }
+        else if(context.phase == InputActionPhase.Canceled)
+        {
+            curMovementInput = Vector2.zero; // 벡터값에 아무것도 들어가면 안되기 때문에 0으로 만듦
+        }
     }
 }

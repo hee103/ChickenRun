@@ -2,7 +2,7 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "Chicken",
+            "name": "Player",
             "id": "def10f97-7212-4125-9230-47b35cdb99d6",
             "actions": [
                 {
