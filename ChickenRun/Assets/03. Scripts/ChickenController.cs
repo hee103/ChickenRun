@@ -74,8 +74,14 @@ public class ChickenController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
+            animator.SetBool("IsJump", true);
             _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
         }
 
     }
+
+    private void JumpEnd()
+    {
+        animator.SetBool("IsJump", false);
+    }    
 }
