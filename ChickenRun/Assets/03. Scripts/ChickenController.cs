@@ -10,10 +10,14 @@ public class ChickenController : MonoBehaviour
     public Vector2 curMovementInput;
 
     private Rigidbody _rigidbody;
+    private Animator animator;
+    [SerializeField]private ParticleSystem dustParticle;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
+        //dustParticle = GetComponent<ParticleSystem>();
     }
 
     // Start is called before the first frame update
@@ -27,22 +31,33 @@ public class ChickenController : MonoBehaviour
     }
     void Move()
     {
-        Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x; //상하좌우 값을 통해 방향 
+        animator.SetBool("IsMove", curMovementInput != Vector2.zero);
+        if (curMovementInput != Vector2.zero)
+        {
+            dustParticle.Play();
+        }
+        else
+        {
+            dustParticle.Stop();
+        }
+        Vector3 dir = new Vector3(curMovementInput.x, 0, curMovementInput.y); 
         dir *= moveSpeed; // 해당 방향으로 움직일 수 있게 함
         dir.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = dir;
+        if (curMovementInput != Vector2.zero)
+        {
+            if (curMovementInput.x > 0) 
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+            else if (curMovementInput.x < 0) 
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+            else if (curMovementInput.y > 0) 
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            else if (curMovementInput.y < 0) 
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 
-    //public void OnMove(InputValue value)
-    //{
-    //    curMovementInput = value.Get<Vector2>();
-    //}
-
-    //public void OnJump(InputValue value)
-    //{
-    //    _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
-    //}
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
@@ -54,6 +69,7 @@ public class ChickenController : MonoBehaviour
             curMovementInput = Vector2.zero; // 벡터값에 아무것도 들어가면 안되기 때문에 0으로 만듦
         }
     }
+
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Started)

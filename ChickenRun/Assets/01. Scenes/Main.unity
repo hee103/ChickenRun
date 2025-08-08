@@ -217,6 +217,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!198 &1731018750 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3355075334629171053, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+  m_PrefabInstance: {fileID: 235018433904079274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1964003843
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 9005258664424269423, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+      propertyPath: dustParticle
+      value: 
+      objectReference: {fileID: 1731018750}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

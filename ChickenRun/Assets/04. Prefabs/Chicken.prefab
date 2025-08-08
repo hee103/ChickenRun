@@ -6969,6 +6969,7 @@ MonoBehaviour:
   moveSpeed: 3
   jumpPower: 80
   curMovementInput: {x: 0, y: 0}
+  dustParticle: {fileID: 3355075334629171053}
 --- !u!95 &4273556043746084798
 Animator:
   serializedVersion: 5
