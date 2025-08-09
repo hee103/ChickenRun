@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638893019698790715
-    m_Hash: 3160327359
+      ticks: 638893036749143327
+    m_Hash: 2807018963
   m_LockFileStatus:
     m_FilePath: C:/Users/a0105/Desktop/UnityGit/ChickenRun/ChickenRun/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638893019698852476
-    m_Hash: 1535668920
+      ticks: 638893036749143327
+    m_Hash: 3503722762
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -350,6 +350,7 @@ m_ResolvedPackages:
     - 1.13.1
     - 1.14.0
     - 1.14.1
+    - 1.14.2
     compatible:
     - 1.7.0
     - 1.8.0-pre.1
@@ -367,6 +368,7 @@ m_ResolvedPackages:
     - 1.13.1
     - 1.14.0
     - 1.14.1
+    - 1.14.2
     recommended: 1.7.0
     deprecated: []
   dependencies:
@@ -866,6 +868,7 @@ m_ResolvedPackages:
     - 1.8.6
     - 1.8.7
     - 1.8.8
+    - 1.8.9
     compatible:
     - 1.7.6
     - 1.7.7
@@ -878,6 +881,7 @@ m_ResolvedPackages:
     - 1.8.6
     - 1.8.7
     - 1.8.8
+    - 1.8.9
     recommended: 1.7.7
     deprecated: []
   dependencies:
@@ -3249,6 +3253,7 @@ m_ResolvedPackages:
     - 1.8.21
     - 1.8.22
     - 1.8.23
+    - 1.8.24
     compatible:
     - 1.8.11
     - 1.8.12
@@ -3263,7 +3268,8 @@ m_ResolvedPackages:
     - 1.8.21
     - 1.8.22
     - 1.8.23
-    recommended: 1.8.23
+    - 1.8.24
+    recommended: 1.8.24
     deprecated: []
   dependencies:
   - name: com.unity.mathematics
