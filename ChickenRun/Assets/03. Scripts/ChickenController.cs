@@ -12,7 +12,7 @@ public class ChickenController : MonoBehaviour
     private Rigidbody _rigidbody;
     private Animator animator;
     [SerializeField]private ParticleSystem dustParticle;
-
+    public Transform cameraTransform;
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -20,7 +20,6 @@ public class ChickenController : MonoBehaviour
         //dustParticle = GetComponent<ParticleSystem>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
        Cursor.lockState = CursorLockMode.Locked;
@@ -40,22 +39,19 @@ public class ChickenController : MonoBehaviour
         {
             dustParticle.Stop();
         }
-        Vector3 dir = new Vector3(curMovementInput.x, 0, curMovementInput.y); 
-        dir *= moveSpeed; // 해당 방향으로 움직일 수 있게 함
-        dir.y = _rigidbody.velocity.y;
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
 
-        _rigidbody.velocity = dir;
-        if (curMovementInput != Vector2.zero)
-        {
-            if (curMovementInput.x > 0) 
-                transform.rotation = Quaternion.Euler(0, 90, 0);
-            else if (curMovementInput.x < 0) 
-                transform.rotation = Quaternion.Euler(0, -90, 0);
-            else if (curMovementInput.y > 0) 
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            else if (curMovementInput.y < 0) 
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
+
+        Vector3 moveDir = forward * curMovementInput.y + right * curMovementInput.x;
+        moveDir *= moveSpeed;
+        moveDir.y = _rigidbody.velocity.y;
+
+        _rigidbody.velocity = moveDir;
     }
 
     public void OnMove(InputAction.CallbackContext context)
