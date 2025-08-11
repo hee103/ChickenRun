@@ -8,6 +8,9 @@ public class ChickenController : MonoBehaviour
     public float moveSpeed;
     public float jumpPower;
     public Vector2 curMovementInput;
+    private int jumpCount = 0;         
+    private int maxJumpCount = 1;     
+    private bool isGrounded = false;
 
     private Rigidbody _rigidbody;
     private Animator animator;
@@ -26,6 +29,7 @@ public class ChickenController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        GroundCheck();
         Move();
     }
     void Move()
@@ -53,7 +57,27 @@ public class ChickenController : MonoBehaviour
 
         _rigidbody.velocity = moveDir;
     }
+    void GroundCheck()
+    {
+        float rayDistance = 0.1f;
+        Vector3 rayOrigin = _rigidbody.position + Vector3.up * 0.1f; 
 
+        Debug.DrawRay(rayOrigin, Vector3.down * rayDistance, Color.green);
+
+        RaycastHit hit;
+        bool isHit = Physics.Raycast(rayOrigin, Vector3.down, out hit, rayDistance, LayerMask.GetMask("Ground"));
+
+        if (isHit)
+        {
+            isGrounded = true;
+            jumpCount = 0;  
+            animator.SetBool("IsJump", false);
+        }
+        else
+        {
+            isGrounded = false;
+        }
+    }
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
@@ -70,14 +94,17 @@ public class ChickenController : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Started)
         {
-            animator.SetBool("IsJump", true);
-            _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+            if (jumpCount < maxJumpCount)
+            {
+                animator.SetBool("IsJump", true);
+                _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z); 
+                _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+                jumpCount++;
+            }
+
         }
 
     }
 
-    private void JumpEnd()
-    {
-        animator.SetBool("IsJump", false);
-    }    
+ 
 }
