@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Chicken
+  - Ground
+  - Pig
+  - Cow
+  - Sheep
   layers:
   - Default
   - TransparentFX
@@ -12,7 +16,7 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
+  - Fork
   - 
   - 
   - 

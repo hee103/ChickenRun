@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638893036749143327
+      ticks: 638910865561409141
     m_Hash: 2807018963
   m_LockFileStatus:
     m_FilePath: C:/Users/a0105/Desktop/UnityGit/ChickenRun/ChickenRun/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638893036749143327
+      ticks: 638910865561477195
     m_Hash: 3503722762
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -123,6 +123,7 @@ m_ResolvedPackages:
     - 2.7.1
     - 2.8.1
     - 2.8.2
+    - 2.9.1
     compatible:
     - 2.2.0
     - 2.3.1
@@ -134,6 +135,7 @@ m_ResolvedPackages:
     - 2.7.1
     - 2.8.1
     - 2.8.2
+    - 2.9.1
     recommended: 2.2.0
     deprecated: []
   dependencies: []
