@@ -1,32 +1,34 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.VirtualTexturing;
 
-public class ChickenController : MonoBehaviour
+public class FarmerController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
     public float jumpPower;
     public Vector2 curMovementInput;
-    private int jumpCount = 0;         
-    private int maxJumpCount = 1;     
+    private int jumpCount = 0;
+    private int maxJumpCount = 1;
     private bool isGrounded = false;
 
     private Rigidbody _rigidbody;
     private Animator animator;
-    [SerializeField]private ParticleSystem dustParticle;
+    [SerializeField] private ParticleSystem dustParticle;
     public Transform cameraTransform;
-
-    private void Awake()
+    void Awake()
     {
+     
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
-        //dustParticle = GetComponent<ParticleSystem>();
+
     }
 
     void Start()
     {
-       Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     void FixedUpdate()
     {
@@ -61,7 +63,7 @@ public class ChickenController : MonoBehaviour
     void GroundCheck()
     {
         float rayDistance = 0.1f;
-        Vector3 rayOrigin = _rigidbody.position + Vector3.up * 0.1f; 
+        Vector3 rayOrigin = _rigidbody.position + Vector3.up * 0.1f;
 
         Debug.DrawRay(rayOrigin, Vector3.down * rayDistance, Color.green);
 
@@ -71,7 +73,7 @@ public class ChickenController : MonoBehaviour
         if (isHit)
         {
             isGrounded = true;
-            jumpCount = 0;  
+            jumpCount = 0;
             animator.SetBool("IsJump", false);
         }
         else
@@ -98,7 +100,7 @@ public class ChickenController : MonoBehaviour
             if (jumpCount < maxJumpCount)
             {
                 animator.SetBool("IsJump", true);
-                _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z); 
+                _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
                 _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 jumpCount++;
             }
@@ -107,5 +109,11 @@ public class ChickenController : MonoBehaviour
 
     }
 
- 
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            animator.SetTrigger("Attack");
+        }
+    }
 }
