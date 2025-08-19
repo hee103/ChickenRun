@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.VirtualTexturing;
 
 public class FarmerController : MonoBehaviour
 {
@@ -74,7 +71,6 @@ public class FarmerController : MonoBehaviour
         {
             isGrounded = true;
             jumpCount = 0;
-            animator.SetBool("IsJump", false);
         }
         else
         {
@@ -99,7 +95,6 @@ public class FarmerController : MonoBehaviour
         {
             if (jumpCount < maxJumpCount)
             {
-                animator.SetBool("IsJump", true);
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
                 _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 jumpCount++;
@@ -115,5 +110,10 @@ public class FarmerController : MonoBehaviour
         {
             animator.SetTrigger("Attack");
         }
+    }
+
+    public void Attack()
+    {
+
     }
 }
