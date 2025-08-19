@@ -97,7 +97,7 @@ public class ChickenController : MonoBehaviour
         {
             if (jumpCount < maxJumpCount)
             {
-                animator.SetBool("IsJump", true);
+                animator.SetTrigger("Jump");
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z); 
                 _rigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 jumpCount++;
@@ -105,6 +105,14 @@ public class ChickenController : MonoBehaviour
 
         }
 
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+
+        }
     }
 
  
