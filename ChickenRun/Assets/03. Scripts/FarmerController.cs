@@ -114,9 +114,16 @@ public class FarmerController : MonoBehaviour
             animator.SetTrigger("Attack");
         }
     }
-
-    public void Attack()
+    private void OnTriggerEnter(Collider other)
     {
-        chickenController.OnDamaged(power);
+        ChickenController chicken = other.GetComponent<ChickenController>();
+        if (chicken != null)
+        {
+            chicken.OnDamaged(power);
+        }
     }
+    //public void Attack()
+    //{
+    //    chickenController.OnDamaged(power);
+    //}
 }

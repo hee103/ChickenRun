@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ChickenController : MonoBehaviour
 {
@@ -12,13 +13,15 @@ public class ChickenController : MonoBehaviour
     private int jumpCount = 0;         
     private int maxJumpCount = 1;     
     private bool isGrounded = false;
-    public int chickenHp = 100;
+    public float maxHp = 100;
+    public float chickenHp;
 
     private Rigidbody _rigidbody;
     private Animator animator;
     [SerializeField]private ParticleSystem dustParticle;
     public Transform cameraTransform;
     public TextMeshProUGUI text;
+    public Slider hpSlider;
 
     private void Awake()
     {
@@ -30,6 +33,10 @@ public class ChickenController : MonoBehaviour
     void Start()
     {
        Cursor.lockState = CursorLockMode.Locked;
+        chickenHp = maxHp;
+        hpSlider.minValue = 0;
+        hpSlider.maxValue = maxHp;
+        UpdateHpUI();
     }
     void FixedUpdate()
     {
@@ -112,16 +119,24 @@ public class ChickenController : MonoBehaviour
 
     public void OnDamaged(int power)
     {
-        chickenHp -= power;
-        if (chickenHp < 0) chickenHp = 0;
+        chickenHp = Mathf.Max(chickenHp - power, 0); 
         UpdateHpUI();
+
+        if (chickenHp == 0)
+        {
+            Die(); 
+        }
     }
 
     private void UpdateHpUI()
     {
         text.text = chickenHp.ToString();
+        hpSlider.value = chickenHp;
     }
 
-
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
  
 }
