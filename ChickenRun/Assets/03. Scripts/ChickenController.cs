@@ -1,4 +1,5 @@
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,11 +12,13 @@ public class ChickenController : MonoBehaviour
     private int jumpCount = 0;         
     private int maxJumpCount = 1;     
     private bool isGrounded = false;
+    public int chickenHp = 100;
 
     private Rigidbody _rigidbody;
     private Animator animator;
     [SerializeField]private ParticleSystem dustParticle;
     public Transform cameraTransform;
+    public TextMeshProUGUI text;
 
     private void Awake()
     {
@@ -107,13 +110,18 @@ public class ChickenController : MonoBehaviour
 
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
+    public void OnDamaged(int power)
     {
-        if (context.phase == InputActionPhase.Started)
-        {
-
-        }
+        chickenHp -= power;
+        if (chickenHp < 0) chickenHp = 0;
+        UpdateHpUI();
     }
+
+    private void UpdateHpUI()
+    {
+        text.text = chickenHp.ToString();
+    }
+
 
  
 }

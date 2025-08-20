@@ -1173,6 +1173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 3886517760721721942, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1535157083073244692}
     - target: {fileID: 6049666890259230651, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
       propertyPath: m_TargetGraphic
       value: 
@@ -1257,6 +1261,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 961557180}
   m_SourcePrefab: {fileID: 100100000, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+--- !u!114 &1535157083073244692 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5455317803511372641, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+  m_PrefabInstance: {fileID: 1535157083073244691}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1562922693652844499
 GameObject:
   m_ObjectHideFlags: 0

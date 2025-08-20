@@ -10,11 +10,14 @@ public class FarmerController : MonoBehaviour
     private int jumpCount = 0;
     private int maxJumpCount = 1;
     private bool isGrounded = false;
+    int power = 30;
 
     private Rigidbody _rigidbody;
     private Animator animator;
     [SerializeField] private ParticleSystem dustParticle;
     public Transform cameraTransform;
+
+    ChickenController chickenController;
     void Awake()
     {
      
@@ -114,6 +117,6 @@ public class FarmerController : MonoBehaviour
 
     public void Attack()
     {
-
+        chickenController.OnDamaged(power);
     }
 }
