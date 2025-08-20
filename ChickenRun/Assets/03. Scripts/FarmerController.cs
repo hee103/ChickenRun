@@ -37,7 +37,7 @@ public class FarmerController : MonoBehaviour
     }
     void Move()
     {
-        animator.SetBool("IsMove", curMovementInput != Vector2.zero);
+        //animator.SetBool("IsMove", curMovementInput != Vector2.zero);
         if (curMovementInput != Vector2.zero)
         {
             dustParticle.Play();
@@ -122,8 +122,5 @@ public class FarmerController : MonoBehaviour
             chicken.OnDamaged(power);
         }
     }
-    //public void Attack()
-    //{
-    //    chickenController.OnDamaged(power);
-    //}
+
 }

@@ -173,7 +173,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.415, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9038047198779281509}
@@ -228,8 +228,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6, y: 0.7, z: 0.6}
-  m_Center: {x: 0, y: 0.4, z: 0.15}
+  m_Size: {x: 0.6, y: 0.82, z: 0.6}
+  m_Center: {x: 0, y: 0.47, z: 0.15}
 --- !u!114 &4091307166221448336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,10 +339,12 @@ MonoBehaviour:
   moveSpeed: 3
   jumpPower: 80
   curMovementInput: {x: 0, y: 0}
+  maxHp: 100
   chickenHp: 100
   dustParticle: {fileID: 5402458850497189769}
   cameraTransform: {fileID: 6290216193166407404}
   text: {fileID: 5455317803511372641}
+  hpSlider: {fileID: 6049666890259230651}
 --- !u!95 &1324393626046169371
 Animator:
   serializedVersion: 5

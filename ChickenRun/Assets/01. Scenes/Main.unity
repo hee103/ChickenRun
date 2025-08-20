@@ -241,17 +241,6 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!114 &61129056 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6049666890259230651, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
-  m_PrefabInstance: {fileID: 1535157083073244691}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &563663237
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,41 +925,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2643129666257324002, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2643129666257324002, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 8764784666184532074}
-    - target: {fileID: 2643129666257324002, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnAttack
-      objectReference: {fileID: 0}
-    - target: {fileID: 2643129666257324002, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FarmerController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2643129666257324002, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3862411791615100421, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
       propertyPath: m_Name
       value: Farmer
-      objectReference: {fileID: 0}
-    - target: {fileID: 3862411791615100421, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7478410215811195762, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7804345557520520588, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7915065510303585375, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1142,30 +1099,6 @@ PrefabInstance:
     - target: {fileID: 824461063899628213, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
       propertyPath: m_Name
       value: Chicken
-      objectReference: {fileID: 0}
-    - target: {fileID: 1348590208199240994, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
-      propertyPath: m_Size.y
-      value: 1.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 1348590208199240994, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
-      propertyPath: m_Center.y
-      value: 0.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 3886517760721721942, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
-      propertyPath: hpSlider
-      value: 
-      objectReference: {fileID: 61129056}
-    - target: {fileID: 6241534105270877957, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6241534105270877957, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6241534105270877957, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6241534105270877957, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5904,17 +5837,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7134060340717877451}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8764784666184532074 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5376165272853216156, guid: a86cb1c7c2c8d614d9e541a89a14ab9f, type: 3}
-  m_PrefabInstance: {fileID: 437575986351331601}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c293f648a09ff14bb18154894a4a86c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8779662487856164073
 GameObject:
   m_ObjectHideFlags: 0
