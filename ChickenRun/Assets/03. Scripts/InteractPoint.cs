@@ -8,13 +8,13 @@ public class InteractPoint : MonoBehaviour
     public float maxCheckDistance = 3f; // 상호작용 거리
     public LayerMask layerMask;         // Item 레이어만 체크
 
-    private Camera camera;
+    [SerializeField]private Camera camera;
     private GameObject curInteractGameObject;
     public ChickenController chickenController;
 
     void Start()
     {
-        camera = Camera.main;
+        //camera = Camera.main;
         
     }
 

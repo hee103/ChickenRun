@@ -139,6 +139,7 @@ public class ChickenController : MonoBehaviour
     {
         Debug.Log("Heal »£√‚");
         chickenHp += 20;
+        chickenHp = Mathf.Min(chickenHp,maxHp);
         UpdateHpUI();
     }
     public void PlayDieParticle()
