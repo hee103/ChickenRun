@@ -134,6 +134,12 @@ public class ChickenController : MonoBehaviour
         hpSlider.value = chickenHp;
     }
 
+    public void Heal()
+    {
+        Debug.Log("Heal »£√‚");
+        chickenHp += 20;
+        UpdateHpUI();
+    }
     private void Die()
     {
         Destroy(gameObject);
