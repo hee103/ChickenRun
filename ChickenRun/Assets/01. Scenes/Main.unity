@@ -467,6 +467,11 @@ Transform:
   - {fileID: 1975339828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1906975093 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8783710498286598987, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+  m_PrefabInstance: {fileID: 1535157083073244691}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1964003843
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,6 +935,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken
       objectReference: {fileID: 0}
+    - target: {fileID: 2922229991944814695, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3886517760721721942, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+      propertyPath: dieParticle
+      value: 
+      objectReference: {fileID: 1906975093}
     - target: {fileID: 6241534105270877957, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -968,6 +981,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6241534105270877957, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783710498286598987, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+      propertyPath: CollisionModule.m_Dampen.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8783710498286598987, guid: 448e6c2b27a3a5d45a120241a5073285, type: 3}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -22,6 +22,7 @@ public class ChickenController : MonoBehaviour
     public Transform cameraTransform;
     public TextMeshProUGUI text;
     public Slider hpSlider;
+    [SerializeField] private ParticleSystem dieParticle;
 
     private void Awake()
     {
@@ -124,7 +125,7 @@ public class ChickenController : MonoBehaviour
 
         if (chickenHp == 0)
         {
-            Die(); 
+            animator.SetTrigger("Die");
         }
     }
 
@@ -140,9 +141,11 @@ public class ChickenController : MonoBehaviour
         chickenHp += 20;
         UpdateHpUI();
     }
-    private void Die()
+    public void PlayDieParticle()
     {
-        Destroy(gameObject);
+        dieParticle.gameObject.SetActive(true);
+        dieParticle.Play();
+        Destroy(gameObject, dieParticle.main.duration);
     }
  
 }
