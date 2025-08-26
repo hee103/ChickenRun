@@ -1,39 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InteractPoint : MonoBehaviour
 {
-    public float checkRate = 0.05f;
-    private float lastCheckTime;
-    public float maxCheckDistance;
-    public LayerMask layerMask;
+    public float maxCheckDistance = 3f; // 상호작용 거리
+    public LayerMask layerMask;         // Item 레이어만 체크
 
-    public GameObject curInteractGameObject;
+    [SerializeField]private Camera camera;
+    private GameObject curInteractGameObject;
+    public ChickenController chickenController;
 
-    private Camera camera;
-    // Start is called before the first frame update
     void Start()
     {
-        camera = Camera.main;
+        //camera = Camera.main;
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width/2,Screen.height/2));
-        RaycastHit hit;
+        Ray ray = camera.ScreenPointToRay(
+            new Vector3(Screen.width / 2, Screen.height / 2)
+        );
 
-        if(Physics.Raycast(ray, out hit, maxCheckDistance,layerMask))
+        Debug.DrawRay(ray.origin, ray.direction * maxCheckDistance, Color.red);
+
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, maxCheckDistance, layerMask))
         {
-            if(hit.collider.gameObject != curInteractGameObject)
+            if (hit.collider.gameObject != curInteractGameObject)
             {
                 curInteractGameObject = hit.collider.gameObject;
-                
             }
         }
         else
         {
+            curInteractGameObject = null;
+        }
+    }
+
+    public void OnUseItem(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started && curInteractGameObject != null)
+        {
+            Destroy(curInteractGameObject);
+            chickenController.Heal();
+            curInteractGameObject = null;
+
 
         }
     }
