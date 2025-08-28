@@ -7,75 +7,74 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 {
     private string selectedRole;
 
+    private void Awake()
+    {
+        // 방장이 씬을 바꾸면 자동으로 다른 클라이언트도 씬을 로드하게 함
+        PhotonNetwork.AutomaticallySyncScene = true;
+    }
 
     private void Start()
     {
-        PhotonNetwork.ConnectUsingSettings(); 
+        PhotonNetwork.ConnectUsingSettings();
+        Debug.Log("서버 연결 시도...");
     }
 
-  
+    /// 역할 선택 버튼에서 호출
     public void JoinRole(string role)
     {
         selectedRole = role;
-        Debug.Log($"{selectedRole}을 선택했습니다");
+        Debug.Log($"{selectedRole} 역할 선택");
         PhotonNetwork.JoinRandomRoom();
     }
 
+
+    /// 참가 가능한 방이 없을 때 새로 생성
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        RoomOptions options = new RoomOptions();
-        options.MaxPlayers = 5;
-        options.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable
+        RoomOptions options = new RoomOptions
         {
-            { "FarmerCount", 0 },
-            { "ChickenCount", 0 }
+            MaxPlayers = 5
         };
-        options.CustomRoomPropertiesForLobby = new string[] { "FarmerCount", "ChickenCount" };
+
         PhotonNetwork.CreateRoom(null, options);
+        Debug.Log("랜덤 방 참가 실패 → 새로운 방 생성");
     }
 
+    /// 방에 들어갔을 때 내 역할을 PlayerProperties에 저장
     public override void OnJoinedRoom()
     {
-        var props = PhotonNetwork.CurrentRoom.CustomProperties;
+        Debug.Log($"{PhotonNetwork.NickName} joined as {selectedRole}");
 
-        int farmerCount = (int)props["FarmerCount"];
-        int chickenCount = (int)props["ChickenCount"];
-
-
-        if (selectedRole == "Farmer")
+        PhotonNetwork.LocalPlayer.SetCustomProperties(new Hashtable
         {
-            if (farmerCount >= 1)
-            {
-                PhotonNetwork.LeaveRoom();
-                Debug.Log("술래가 이미 있는 방입니다");
-                return;
-            }
-            farmerCount++;
-        }
-        else
-        {
-            if (chickenCount >= 4)
-            {
-                PhotonNetwork.LeaveRoom();
-                Debug.Log("도망자가 이미 다 찼습니다");
-                return;
-            }
-            chickenCount++;
-        }
-
-  
-        PhotonNetwork.CurrentRoom.SetCustomProperties(new ExitGames.Client.Photon.Hashtable
-        {
-            { "FarmerCount", farmerCount },
-            { "ChickenCount", chickenCount }
+            { "Role", selectedRole }
         });
+    }
 
-        Debug.Log($"Joined as {selectedRole}");
 
-  
+    /// 플레이어 속성이 바뀔 때마다 실행됨 
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+    {
+        int farmerCount = 0;
+        int chickenCount = 0;
+
+        // 방에 속한 모든 플레이어들의 Role 집계
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            if (player.CustomProperties.TryGetValue("Role", out object role))
+            {
+                if ((string)role == "Farmer") farmerCount++;
+                else if ((string)role == "Chicken") chickenCount++;
+            }
+        }
+
+        Debug.Log($"현재 Farmer={farmerCount}, Chicken={chickenCount}, 방장={PhotonNetwork.IsMasterClient}");
+
+        // 인원 다 채워졌으면 씬 이동
         if (farmerCount == 1 && chickenCount == 4 && PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel("GameScene");
+            Debug.Log("인원 다 채워짐! 방장이 Main 씬 로드");
+            PhotonNetwork.LoadLevel("Main");
         }
     }
 }
