@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 public class FarmerController : MonoBehaviour
 {
@@ -18,11 +19,15 @@ public class FarmerController : MonoBehaviour
     public Transform cameraTransform;
 
     ChickenController chickenController;
+
+    public PhotonView fpv;
+
     void Awake()
     {
      
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        fpv = GetComponent<PhotonView>();
 
     }
 
@@ -32,11 +37,16 @@ public class FarmerController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (!fpv.IsMine)
+        {
+            return;
+        }
         GroundCheck();
         Move();
     }
     void Move()
     {
+
         //animator.SetBool("IsMove", curMovementInput != Vector2.zero);
         if (curMovementInput != Vector2.zero)
         {
@@ -82,6 +92,7 @@ public class FarmerController : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (!fpv.IsMine) return;
         if (context.phase == InputActionPhase.Performed)
         {
             curMovementInput = context.ReadValue<Vector2>();
@@ -94,6 +105,7 @@ public class FarmerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (!fpv.IsMine) return;
         if (context.phase == InputActionPhase.Started)
         {
             if (jumpCount < maxJumpCount)

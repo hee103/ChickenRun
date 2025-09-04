@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 public class CameraController : MonoBehaviour
 {
@@ -8,7 +9,17 @@ public class CameraController : MonoBehaviour
 
     private Vector2 lookInput;  
     private float xRotation = 0f;
+    private PhotonView pv;
 
+    private void Awake()
+    {
+        pv = GetComponentInParent<PhotonView>();
+        if (!pv.IsMine)
+        {
+            enabled = false;
+            GetComponent<Camera>().enabled = false;
+        }
+    }
 
     void Update()
     {

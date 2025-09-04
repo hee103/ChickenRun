@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class ChickenController : MonoBehaviour
 {
@@ -24,10 +25,13 @@ public class ChickenController : MonoBehaviour
     public Slider hpSlider;
     [SerializeField] private ParticleSystem dieParticle;
 
+    private PhotonView cpv;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        cpv = GetComponent<PhotonView>();
         //dustParticle = GetComponent<ParticleSystem>();
     }
 
@@ -41,6 +45,10 @@ public class ChickenController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (!cpv.IsMine )
+        {
+            return;
+        }
         GroundCheck();
         Move();
     }
@@ -92,6 +100,7 @@ public class ChickenController : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (!cpv.IsMine) return;
         if (context.phase == InputActionPhase.Performed)
         {
             curMovementInput = context.ReadValue<Vector2>();
@@ -104,6 +113,7 @@ public class ChickenController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (!cpv.IsMine) return;
         if (context.phase == InputActionPhase.Started)
         {
             if (jumpCount < maxJumpCount)
