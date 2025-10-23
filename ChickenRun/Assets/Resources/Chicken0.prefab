@@ -7083,9 +7083,10 @@ GameObject:
   - component: {fileID: 5892860369125797100}
   - component: {fileID: 7502535632927742609}
   - component: {fileID: -5275231498817620074}
+  - component: {fileID: 8495456368414171686}
   m_Layer: 7
   m_Name: Chicken0
-  m_TagString: Chicken
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7103,9 +7104,9 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4574276424111108676}
   - {fileID: 8255203906101655079}
   - {fileID: 1367650984906654800}
-  - {fileID: 4574276424111108676}
   - {fileID: 2948814979242811336}
   - {fileID: 6697102283341174300}
   m_Father: {fileID: 0}
@@ -7135,7 +7136,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &5253161041768750873
 BoxCollider:
@@ -7323,16 +7324,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
+  ObservedComponentsFoldoutOpen: 0
   Group: 0
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 8495456368414171686}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &8495456368414171686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5596395893557910288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &6069836490055468226
 GameObject:
   m_ObjectHideFlags: 0

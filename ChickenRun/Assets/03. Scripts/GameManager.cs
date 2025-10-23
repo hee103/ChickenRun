@@ -52,7 +52,13 @@ public class GameManager : MonoBehaviour
             {
                 // spawnPoints 배열에서 내 번호에 맞는 위치 사용
                 Transform spawn = spawnPoints[PhotonNetwork.LocalPlayer.ActorNumber - 1];
-                PhotonNetwork.Instantiate(prefabToSpawn.name, spawn.position, spawn.rotation);
+                GameObject player = PhotonNetwork.Instantiate(prefabToSpawn.name, spawn.position, spawn.rotation);
+
+                CameraController cameraController = player.GetComponentInChildren<CameraController>();
+                if (cameraController != null)
+                {
+                    cameraController.playerBody = player.transform;
+                }
             }
         }
     }

@@ -65,6 +65,10 @@ public class ChickenController : MonoBehaviour
         }
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
+        if (cameraTransform == null)
+        {
+            cameraTransform = Camera.main.transform;
+        }
 
         forward.y = 0f;
         right.y = 0f;

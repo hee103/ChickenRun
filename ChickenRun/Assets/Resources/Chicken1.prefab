@@ -6774,6 +6774,7 @@ GameObject:
   - component: {fileID: 4862854306963669244}
   - component: {fileID: 6436502346876716649}
   - component: {fileID: 5696873051358276266}
+  - component: {fileID: 4606622970310670594}
   m_Layer: 7
   m_Name: Chicken1
   m_TagString: Chicken
@@ -7020,10 +7021,27 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 4606622970310670594}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &4606622970310670594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711108146955988585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &5744341043977120481
 GameObject:
   m_ObjectHideFlags: 0

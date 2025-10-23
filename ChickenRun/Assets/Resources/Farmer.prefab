@@ -8046,7 +8046,7 @@ GameObject:
   - component: {fileID: 8452650464514000048}
   m_Layer: 0
   m_Name: MainCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8714,7 +8714,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  camera: {fileID: 0}
+  camera: {fileID: 6323650797076961031}
   chickenController: {fileID: 0}
 --- !u!1 &7864425079047315469
 GameObject:
@@ -9030,6 +9030,7 @@ GameObject:
   - component: {fileID: 258552243250039003}
   - component: {fileID: 8966428051622693360}
   - component: {fileID: 4848967383276196267}
+  - component: {fileID: 3970558315149903217}
   m_Layer: 0
   m_Name: Farmer
   m_TagString: Untagged
@@ -9252,6 +9253,7 @@ MonoBehaviour:
   curMovementInput: {x: 0, y: 0}
   dustParticle: {fileID: 5307543547524030788}
   cameraTransform: {fileID: 3423391063970146716}
+  fpv: {fileID: 0}
 --- !u!114 &8966428051622693360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9286,6 +9288,22 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &3970558315149903217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8227556339482950887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &8656753267497175392
 GameObject:
   m_ObjectHideFlags: 0
