@@ -6476,6 +6476,53 @@ Transform:
   - {fileID: 4939984135691972474}
   m_Father: {fileID: 3738642145383444844}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5066602670972308930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8890698976350825232}
+  - component: {fileID: 6546392817111672305}
+  m_Layer: 7
+  m_Name: CameraRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8890698976350825232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066602670972308930}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4574276424111108676}
+  m_Father: {fileID: 5126954726265951467}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6546392817111672305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066602670972308930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da27baa011c2dd44add8b3d75270926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 100
+  playerBody: {fileID: 5126954726265951467}
 --- !u!1 &5108278309684542941
 GameObject:
   m_ObjectHideFlags: 0
@@ -7104,11 +7151,11 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4574276424111108676}
   - {fileID: 8255203906101655079}
   - {fileID: 1367650984906654800}
   - {fileID: 2948814979242811336}
   - {fileID: 6697102283341174300}
+  - {fileID: 8890698976350825232}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &8682998801212031164
@@ -7136,7 +7183,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &5253161041768750873
 BoxCollider:
@@ -7218,7 +7265,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8179607412008364943}
+      - m_Target: {fileID: 6546392817111672305}
         m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
         m_MethodName: OnLook
         m_Mode: 0
@@ -7304,7 +7351,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3b974eb2055d8a6429523b3588fdba8d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -7557,7 +7604,6 @@ GameObject:
   - component: {fileID: 4574276424111108676}
   - component: {fileID: 673444128805306692}
   - component: {fileID: 2224386930382506413}
-  - component: {fileID: 8179607412008364943}
   - component: {fileID: 8663969580398493989}
   m_Layer: 7
   m_Name: Main Camera
@@ -7574,12 +7620,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6420014869044086356}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26673374, y: 0, z: 0, w: 0.9637702}
+  m_LocalRotation: {x: 0.26673377, y: -0, z: -0, w: 0.9637703}
   m_LocalPosition: {x: 0, y: 2.18, z: -1.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5126954726265951467}
+  m_Father: {fileID: 8890698976350825232}
   m_LocalEulerAnglesHint: {x: 30.94, y: 0, z: 0}
 --- !u!20 &673444128805306692
 Camera:
@@ -7640,20 +7686,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6420014869044086356}
   m_Enabled: 1
---- !u!114 &8179607412008364943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6420014869044086356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da27baa011c2dd44add8b3d75270926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  playerBody: {fileID: 5126954726265951467}
 --- !u!114 &8663969580398493989
 MonoBehaviour:
   m_ObjectHideFlags: 0
