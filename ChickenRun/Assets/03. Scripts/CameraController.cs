@@ -23,7 +23,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        transform.position = playerBody.position;
+        //transform.position = playerBody.position;
         transform.rotation = playerBody.rotation * Quaternion.Euler(xRotation, 0f, 0f);
 
         if (pv != null && !pv.IsMine) return;
