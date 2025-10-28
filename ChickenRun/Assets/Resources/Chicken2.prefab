@@ -1032,6 +1032,7 @@ GameObject:
   - component: {fileID: 1608120306042742204}
   - component: {fileID: -356626354366555470}
   - component: {fileID: 4230547411932200402}
+  - component: {fileID: -9219193387064324103}
   m_Layer: 7
   m_Name: Chicken2
   m_TagString: Chicken
@@ -1299,6 +1300,22 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &-9219193387064324103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085687805065105713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &4618610324346507039
 GameObject:
   m_ObjectHideFlags: 0
