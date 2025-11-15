@@ -30,13 +30,13 @@
 <details><summary>멀티 시스템</summary>
 
 ### 멀티 시스템 
-<img src="https://teamsparta.notion.site/image/attachment%3A9a91930b-5e77-4ab8-828d-ef55eeb868dd%3Aimage.png?table=block&id=2012dc3e-f514-80b5-b2a6-d144b9ff5c77&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=1010&userId=&cache=v2" width="400" height="300" />
-
 - Photon을 사용한 서버 구축
 
 ---
 
+# 트러블 슈팅
   
+
 
 
 <br><br>
