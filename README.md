@@ -31,10 +31,12 @@
 
 ### 멀티 시스템
 - Photon을 사용한 서버 구축
-
+</details>
 ---
 
-## 트러블 슈팅
-- dsadasdasdasd  
+### 트러블 슈팅
+- Photon 방 생성 시 로비 Timeout 발생  
+- 해결 과정: [블로그 바로가기](https://your-blog-link.com)
 
-</details>
+
+
