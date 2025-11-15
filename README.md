@@ -2,7 +2,7 @@
 
 # Description
 ## 개발 기간
-- 2025.09 ~
+- 2025.08 ~
 - 개발 인원: 1인
 
 ## 프로젝트 소개
@@ -31,12 +31,14 @@
 
 ### 멀티 시스템
 - Photon을 사용한 서버 구축
+
 </details>
+
 ---
 
 ### 트러블 슈팅
-- Photon 방 생성 시 로비 Timeout 발생  
-- 해결 과정: [블로그 바로가기](https://your-blog-link.com)
+- 카메라 회전문제 발생
+  해결 과정: [블로그 바로가기]([https://your-blog-link.com](https://unihee1.tistory.com/110))
 
 
 
