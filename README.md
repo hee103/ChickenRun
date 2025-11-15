@@ -1,4 +1,4 @@
-<img src="https://readme-decorate.vercel.app/api/get?type=star&text=Chicken Run&width=1200&height=200&fontSize=80&fontWeight=800&useGradient=true&fontColor=%23FFFFFF&backgroundColor=%23c9c9c9&gradientColor1=%23FFFFFF&gradientColor2=%230000FF">
+<img src="https://readme-decorate.vercel.app/api/get?type=star&text=Chicken%20Run&width=1200&height=200&fontSize=80&fontWeight=800&useGradient=true&fontColor=%23FFFFFF&backgroundColor=%23c9c9c9&gradientColor1=%23FFFFFF&gradientColor2=%230000FF">
 
 # Description
 ## 개발 기간
