@@ -38,7 +38,7 @@
 
 ### 트러블 슈팅
 - 카메라 회전문제 발생
-  해결 과정: [블로그 바로가기]([https://your-blog-link.com](https://unihee1.tistory.com/110))
+  해결 과정: [블로그 바로가기](https://unihee1.tistory.com/110)
 
 
 
